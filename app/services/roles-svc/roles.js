@@ -1,35 +1,35 @@
 const Boom = require('boom');
 const {logger} =require('../../lib/report');
-const postgresPool = require('../../lib/database/postgrest').pool;
 const Roles = require('../../database/models/roles').Roles
-const { createConnection, getConnection, getRepository} = require('typeorm');
-// const roleRepository = getRepository(Roles)
+const { getRepository } = require('typeorm');
 
 const TAG = 'server.services.roles'
-const roleRepository = getRepository(Roles)
 
 async function getAllRoleExist() {
     logger.info(TAG, 'getAllRoleExist begin')
-    // try {
-        const result = await getRepository.find(Roles)
-        console.log(result);
+    const result = await getRepository(Roles).find()
     return result
-
-    // } catch (error) {
-    //     const { statusCode, response } = error
-    //     logger.error(TAG, 'introspect error catch', {error})
-    //     return { err: { statusCode, data: response } }
-    // }    
 }
 
 async function createNewRole(roleName) {
-    let rolesModel = Model.findAll()
-    logger.info(TAG, 'createNewRole begin')
-        const dateNow = new Date().getTime()
-        //new Date().toISOString()
-        console.log('asuuuuuuu',dateNow, roleName);
-        return dateNow
-    
+    logger.info(TAG, 'getAllRoleExist begin', roleName)
+    const roleNameExist = await getRoleName(roleName)
+    if(roleNameExist){
+        throw Boom.badData(roleName+ ' alredy exist')
+    }
+
+    // console.log(roleId);
+    return await getRepository(Roles).save({
+        // id:roleId,
+        roleName:roleName
+    })
+
+}
+
+async function getRoleName(roleName) {
+    logger.info(TAG, 'getRoleName begin', roleName)
+    const name = await getRepository(Roles).findOne({roleName:roleName})
+    return name
 }
 
 async function getRoleDetails(idRole) {
@@ -51,7 +51,11 @@ module.exports=[
         method: createNewRole
     },
     {
-        name:'service.auth.roleDetail',
+        name:'service.auth.getRoleDetails',
         method: getRoleDetails
+    },
+    {
+        name:'service.auth.getRoleName',
+        method: getRoleName
     }
 ]
