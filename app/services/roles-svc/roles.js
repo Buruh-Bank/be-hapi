@@ -1,51 +1,36 @@
-const Boom = require('boom')
-const {logger} =require('../../lib/report')
-//const Role = require('../../models/roles')
-const uuidv4 = require('uuid')
-const roles = require('../../models/roles')
-const postgresPool = require('../../lib/database/postgrest').pool
-const TAG = 'server.services.roles'
+const Boom = require('boom');
+const {logger} =require('../../lib/report');
+const postgresPool = require('../../lib/database/postgrest').pool;
+const Roles = require('../../database/models/roles').Roles
+const { createConnection, getConnection, getRepository} = require('typeorm');
+// const roleRepository = getRepository(Roles)
 
+const TAG = 'server.services.roles'
+const roleRepository = getRepository(Roles)
+
+async function getAllRoleExist() {
+    logger.info(TAG, 'getAllRoleExist begin')
+    // try {
+        const result = await getRepository.find(Roles)
+        console.log(result);
+    return result
+
+    // } catch (error) {
+    //     const { statusCode, response } = error
+    //     logger.error(TAG, 'introspect error catch', {error})
+    //     return { err: { statusCode, data: response } }
+    // }    
+}
 
 async function createNewRole(roleName) {
+    let rolesModel = Model.findAll()
     logger.info(TAG, 'createNewRole begin')
         const dateNow = new Date().getTime()
         //new Date().toISOString()
         console.log('asuuuuuuu',dateNow, roleName);
-        logger.debug(TAG,dateNow);
-        console.log(postgresPool);
-        const sql = await postgresPool.query(
-            `INSERT INTO ilham.kuntul.auth_roles (id, name, create_date, update_date,delete_date) VALUES (${uuidv4}, ${roleName})`
-            )
-        console.log('asuuuuuuu1',sql);
-        // logger.debug(sql)
-        logger.debug(TAG, sql, 'createNewRole')
-        return sql
+        return dateNow
     
 }
-
-async function getAllRoleExist() {
-    logger.info(TAG, 'getAllRoleExist begin')
-        const result =[]
-        // await postgresPool.query(
-        //     `select * from ilham.kuntul.auth_roles ar`
-        // );       
-        logger.debug(TAG, "getAllRoleExist", result.rows )
-        const row = result.rows        
-        return row
-    }
-
-    // } catch (error) {
-    //     return error
-    //     const { statusCode } = error
-    //     logger.error(TAG, statusCode)
-    //     if (statusCode && statusCode === 401) { 
-    //         throw Boom.unauthorized('Cant get roles') 
-    //     }
-    //     logger.error(TAG, 'Get Role error catch', { error })
-    //         throw Boom.gatewayTimeout()
-    // }
-
 
 async function getRoleDetails(idRole) {
     try {
