@@ -1,6 +1,7 @@
 # BE hapi js auth
 [![CodeQL](https://github.com/Buruh-Bank/be-hapi/actions/workflows/codeql-analysis.yml/badge.svg?branch=main)](https://github.com/Buruh-Bank/be-hapi/actions/workflows/codeql-analysis.yml)
-
+[![njsscan sarif](https://github.com/Buruh-Bank/be-hapi/actions/workflows/njsscan-analysis.yml/badge.svg?branch=main)](https://github.com/Buruh-Bank/be-hapi/actions/workflows/njsscan-analysis.yml)
+[![Node.js CI](https://github.com/Buruh-Bank/be-hapi/actions/workflows/nodejs.yml/badge.svg?branch=main)](https://github.com/Buruh-Bank/be-hapi/actions/workflows/nodejs.yml)
 ## how to start
 - copy env file  ``` cp .env .env.example``` from .env.example
   
