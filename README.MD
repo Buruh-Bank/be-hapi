@@ -1,4 +1,5 @@
-# ceria complane handling
+# BE hapi js auth
+[![CodeQL](https://github.com/Buruh-Bank/be-hapi/actions/workflows/codeql-analysis.yml/badge.svg?branch=main)](https://github.com/Buruh-Bank/be-hapi/actions/workflows/codeql-analysis.yml)
 
 ## how to start
 - copy env file  ``` cp .env .env.example``` from .env.example
