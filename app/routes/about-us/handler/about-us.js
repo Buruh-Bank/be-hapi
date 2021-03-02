@@ -1,9 +1,7 @@
-const aboutUsContent = require('./content')
+const aboutUsContent = require("./content");
 
 async function handler() {
-  return await aboutUsContent.content()
-    
-  }
-  
-  module.exports = handler
-  
+  return await aboutUsContent.content();
+}
+
+module.exports = handler;

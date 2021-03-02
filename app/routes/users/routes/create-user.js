@@ -1,23 +1,23 @@
-const Joi = require('joi')
-const handler = require('../handler/create-user')
+const Joi = require("joi");
+const handler = require("../handler/create-user");
 
 const route = {
-  method: 'POST',
-  path: '/users/user',
+  method: "POST",
+  path: "/users/user",
   options: {
-    tags: ['api', 'user'],
-    description: 'Create User',
-    notes: 'User Registration API',
+    tags: ["api", "user"],
+    description: "Create User",
+    notes: "User Registration API",
     validate: {
-        payload: {
-            userName: Joi.string().min(5).max(45).alphanum().required(),
-            firstName: Joi.string().min(5).max(45).alphanum().required(),
-            lastName: Joi.string().min(5).max(45).alphanum().required(),
-            email: Joi.string().min(5).max(45).email().required(),
-            password: Joi.string().min(5).max(45).alphanum().required(),
-            userRoles:Joi.string().required()
-        }
+      payload: {
+        userName: Joi.string().min(5).max(45).alphanum().required(),
+        firstName: Joi.string().min(5).max(45).alphanum().required(),
+        lastName: Joi.string().min(5).max(45).alphanum().required(),
+        email: Joi.string().min(5).max(45).email().required(),
+        password: Joi.string().min(5).max(45).alphanum().required(),
+        userRoles: Joi.string().required(),
       },
+    },
     // validate:{},
     // validate: {
     //   headers: Joi.object({
@@ -26,19 +26,19 @@ const route = {
     //   }).unknown()
     // },
     plugins: {
-      'hapi-swagger': {
-        payloadType: 'form',
+      "hapi-swagger": {
+        // payloadType: 'form',
         responses: {
-          '200': {
-            description: 'Success'
-          }
-        }
-      }
+          200: {
+            description: "Success",
+          },
+        },
+      },
     },
     // auth: 'jwt-asu'
     //'mobile-jwt'
   },
-  handler
-}
+  handler,
+};
 
-module.exports = route
+module.exports = route;

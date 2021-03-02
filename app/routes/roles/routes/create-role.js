@@ -1,19 +1,19 @@
-const Joi = require('joi')
-const handler = require('../handler/create-role')
+const Joi = require("joi");
+const handler = require("../handler/create-role");
 
 const route = {
-  method: 'POST',
-  path: '/auth/role',
+  method: "POST",
+  path: "/auth/role",
   options: {
-    tags: ['api', 'roles', 'create'],
-    description: 'Create Roles Category',
-    notes: 'Create Roles Category',
+    tags: ["api", "roles", "create"],
+    description: "Create Roles Category",
+    notes: "Create Roles Category",
     validate: {
-        payload: {
-          id: Joi.number().max(45).required(),
-          role_name: Joi.string().min(5).max(45).alphanum().required(),
-        }
+      payload: {
+        id: Joi.number().max(45).required(),
+        role_name: Joi.string().min(5).max(45).alphanum().required(),
       },
+    },
     // validate:{},
     // validate: {
     //   headers: Joi.object({
@@ -22,19 +22,19 @@ const route = {
     //   }).unknown()
     // },
     plugins: {
-      'hapi-swagger': {
+      "hapi-swagger": {
         // payloadType: 'form',
         responses: {
-          '200': {
-            description: 'Success'
-          }
-        }
-      }
+          200: {
+            description: "Success",
+          },
+        },
+      },
     },
     // auth: 'jwt-asu'
     //'mobile-jwt'
   },
-  handler
-}
+  handler,
+};
 
-module.exports = route
+module.exports = route;

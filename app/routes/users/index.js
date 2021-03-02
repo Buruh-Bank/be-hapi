@@ -1,9 +1,9 @@
-const Routes = require('./routes')
+const Routes = require("./routes");
 
 exports.plugin = {
-  pkg: require('./package.json'),
+  pkg: require("./package.json"),
 
   register: (server, options) => {
-    Routes(server)
-  }
-}
+    Routes(server);
+  },
+};

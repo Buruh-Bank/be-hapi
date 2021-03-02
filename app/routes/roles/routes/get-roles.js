@@ -1,13 +1,13 @@
-const Joi = require('joi')
-const handler = require('../handler/get-roles')
+const Joi = require("joi");
+const handler = require("../handler/get-roles");
 
 const route = {
-  method: 'GET',
-  path: '/auth/roles',
+  method: "GET",
+  path: "/auth/roles",
   options: {
-    tags: ['api', 'roles'],
-    description: 'Get Roles Category',
-    notes: 'Roles Category',
+    tags: ["api", "roles"],
+    description: "Get Roles Category",
+    notes: "Roles Category",
     // validate:{},
     // validate: {
     //   headers: Joi.object({
@@ -16,19 +16,19 @@ const route = {
     //   }).unknown()
     // },
     plugins: {
-      'hapi-swagger': {
-        payloadType: 'form',
+      "hapi-swagger": {
+        payloadType: "form",
         responses: {
-          '200': {
-            description: 'Success'
-          }
-        }
-      }
+          200: {
+            description: "Success",
+          },
+        },
+      },
     },
     // auth: 'jwt-asu'
     //'mobile-jwt'
   },
-  handler
-}
+  handler,
+};
 
-module.exports = route
+module.exports = route;

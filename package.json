@@ -4,7 +4,7 @@
   "description": "hapi js be",
   "main": "server.js",
   "scripts": {
-    "start": "NODE_ENV=production node server",
+    "start": "production node server",
     "prod": "NODE_ENV=production node server",
     "dev": "NODE_ENV=development node server",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -48,6 +48,7 @@
     "vision": "^5.4.4"
   },
   "devDependencies": {
-    "nodemon": "2.0.7"
+    "nodemon": "2.0.7",
+    "prettier": "2.2.1"
   }
 }

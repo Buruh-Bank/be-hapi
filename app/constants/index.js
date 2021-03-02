@@ -1,8 +1,8 @@
 const TABLES = {
-	USERS:'auth_users',
-    ROLES:'auth_roles'
+  USERS: "auth_users",
+  ROLES: "auth_roles",
 };
 
-module.exports={
-    TABLES
-}
+module.exports = {
+  TABLES,
+};
