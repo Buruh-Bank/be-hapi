@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "@hapi/ammo": "^5.0.1",
-    "@hapi/boom": "9.1.1",
+    "@hapi/boom": "9.1.2",
     "@hapi/hapi": "^20.1.0",
     "@hapi/subtext": "^7.0.3",
     "bcrypt": "^5.0.0",
